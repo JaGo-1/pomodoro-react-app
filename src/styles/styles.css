@@ -1,0 +1,79 @@
+/*----------- FONTS -----------*/
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+
+.gaegu-regular {
+    font-family: "Gaegu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .gaegu-bold {
+    font-family: "Gaegu", serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+/*----------- STYLES -----------*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #fff6de;
+    position: relative;
+}
+
+h1{
+    font-size: 5rem
+}
+
+h2{
+    font-size: 8rem;
+}
+
+.timer{
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.settings{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+/*----------- MEDIA QUERIES -----------*/
+@media (max-width: 768px){
+    h1{
+        font-size: 3rem;
+    }
+    h2{
+        font-size: 5rem;
+    }
+
+    .btn img{
+        width: 3rem;
+    }
+
+    .btn-small img{
+        width: 2rem;
+    }
+}

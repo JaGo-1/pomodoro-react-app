@@ -1,0 +1,22 @@
+.btn{
+    background-color: #b2b67e54;
+    /* border: dashed 2px #b2b67e; */
+    border: dashed 2px #000;
+
+    color: white;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    display: flex;
+    border-radius: 50%;
+}
+
+img{
+    width: 5rem;
+}
+
+.btn-small img{
+    width: 2.5rem;
+}
