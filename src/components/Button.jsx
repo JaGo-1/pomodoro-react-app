@@ -1,8 +1,8 @@
 import '../styles/button.css'
-const Button = ({text, img, size}) => {
+const Button = ({text, img, size, onClick}) => {
   return (
 
-    <button className={`btn gaegu-regular ${size ? `btn-${size}` : ''}`}>{text}
+    <button onClick={onClick} className={`btn gaegu-regular ${size ? `btn-${size}` : ''}`}>{text}
     <img src={img} alt="" />
     </button>
   )
