@@ -1,9 +1,12 @@
 import '../styles/button.css'
-const Button = ({text, img, size, onClick}) => {
+
+const Button = ({text, className, iconStyle, onClick, icon:Icon}) => {
   return (
 
-    <button onClick={onClick} className={`btn gaegu-regular ${size ? `btn-${size}` : ''}`}>{text}
-    <img src={img} alt="" />
+    <button onClick={onClick} className={className}>
+      {Icon && <Icon className={iconStyle} />}
+      {text}
+   
     </button>
   )
 }

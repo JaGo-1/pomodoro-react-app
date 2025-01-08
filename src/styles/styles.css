@@ -1,15 +1,37 @@
 /*----------- FONTS -----------*/
-@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-.gaegu-regular {
+/* .gaegu-regular {
     font-family: "Gaegu", serif;
     font-weight: 400;
     font-style: normal;
   }
-  
+
   .gaegu-bold {
     font-family: "Gaegu", serif;
     font-weight: 700;
+    font-style: normal;
+  } */
+
+  .outfit-light {
+    font-family: "Outfit", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  .outfit-regular {
+    font-family: "Outfit", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .outfit-bold {
+    font-family: "Outfit", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
     font-style: normal;
   }
 
@@ -23,12 +45,11 @@
 
 .container{
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
     height: 100vh;
-    background-color: #fff6de;
+    background-color: #252525;
     position: relative;
+    color: #ECECEC;
 }
 
 h1{
@@ -39,8 +60,31 @@ h2{
     font-size: 8rem;
 }
 
+/* ----------- NAVBAR ----------- */
+
+.nav__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+/* ----------- HOME -----------*/
+
+.home__container{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .timer{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .buttons{
@@ -51,15 +95,28 @@ h2{
     margin-top: 1.5rem;
 }
 
-.settings{
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1rem;
+.timer__btn-controllers{
     display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
+/*----------- FOOTER -----------*/
+.footer__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    /* position: absolute;
+    bottom: 0; */
+    width: 100%;
+}
+
+.footer__container p, .footer__container a{
+    color: rgb(107, 107, 107);
+}
 /*----------- MEDIA QUERIES -----------*/
 @media (max-width: 768px){
     h1{
