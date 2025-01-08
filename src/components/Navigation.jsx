@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button'
-import { IoSettingsOutline } from "react-icons/io5";
+import { IoSettingsOutline, IoTimeOutline } from "react-icons/io5";
 
 
 function Navigation() {

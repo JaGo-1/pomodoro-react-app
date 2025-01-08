@@ -1,39 +1,26 @@
 /*----------- FONTS -----------*/
-/* @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-/* .gaegu-regular {
-    font-family: "Gaegu", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
-  .gaegu-bold {
-    font-family: "Gaegu", serif;
-    font-weight: 700;
-    font-style: normal;
-  } */
-
-  .outfit-light {
+.outfit-light {
     font-family: "Outfit", serif;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-  }
+}
 
-  .outfit-regular {
+.outfit-regular {
     font-family: "Outfit", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-  }
+}
 
-  .outfit-bold {
+.outfit-bold {
     font-family: "Outfit", serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
-  }
+}
 
 /*----------- STYLES -----------*/
 
@@ -81,6 +68,7 @@ h2{
 }
 
 .timer{
+    width: 450px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -132,5 +120,9 @@ h2{
 
     .btn-small img{
         width: 2rem;
+    }
+
+    .timer{
+        width: 300px;
     }
 }
