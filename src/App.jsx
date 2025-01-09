@@ -1,16 +1,17 @@
 import Home from './components/Home'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
+import { TimerContextProvider } from './context/TimerContext'
 
  function App() {
   return (
-    <div className='container'>
- 
+    <TimerContextProvider>
+      <div className='container'>
         <Navigation />
         <Home />
         <Footer /> 
-
-    </div>
+      </div> 
+    </TimerContextProvider>
   )
 }
 

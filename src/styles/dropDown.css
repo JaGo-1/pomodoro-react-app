@@ -1,0 +1,101 @@
+.settings__menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    background-color: rgb(56, 56, 56);
+    padding: 30px;
+    border-radius: 10px;
+    color: rgb(235, 235, 235);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    gap: 2rem;
+}
+
+.settings__menu-option{
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.settings__menu-option input{
+    height: 30px;
+    border: none;
+    padding: 5px;
+    background: none;
+    color: #fff;
+    text-align: center;
+}
+
+.settings__menu-option input:focus{
+    outline: none;
+}
+
+.settings__menu-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 20px;
+}
+
+.settings-save-btn{
+    background-color: #026b79;
+}
+
+.settings-save-btn:hover{
+    background-color: #7cf2ff;
+}
+
+.settings-reset-btn{
+    background-color: #830435;
+}
+
+.settings-reset-btn:hover{
+    background-color: #ff6a90;
+}
+
+.settings__menu-btns{
+    display: flex;
+    gap: 1rem;
+}
+
+.custom-input{
+    border: 1px solid #8b8b8b;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    box-shadow: 0 0 10px rgba(65, 65, 65, 0.5);
+
+}
+
+.icon-container{
+    /* background-color: #3b3b3b86; */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container--minus{
+    position: absolute;
+    left: 0;
+}
+
+.icon-container--plus{
+    position: absolute;
+    right: 0;
+}
+
+.icon-container:hover{
+    
+    background-color: #ECECEC;
+    color: #383838;
+    transition: 0.3s;
+    cursor: pointer;
+}

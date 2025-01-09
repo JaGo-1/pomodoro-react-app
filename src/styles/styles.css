@@ -37,6 +37,7 @@
     background-color: #252525;
     position: relative;
     color: #ECECEC;
+    overflow: hidden;
 }
 
 h1{
@@ -47,6 +48,15 @@ h2{
     font-size: 8rem;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 /* ----------- NAVBAR ----------- */
 
 .nav__container{

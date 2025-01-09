@@ -1,19 +1,38 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useContext} from 'react'
 import '../styles/styles.css'
 import Button from './Button'
 import { IoPlay, IoPauseSharp, IoReload  } from "react-icons/io5";
 import alarmSound from '../assets/alarm3s.mp3'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-
+import { TimerContext } from '../context/TimerContext'
 
 function Home() {
+    const { work, breakTime, longBreak, time, setTime } = useContext(TimerContext)
     const [isRunning, setIsRunning] = useState(false)
-    const [time, setTime] = useState(1500)
+    // const [time, setTime] = useState(1500)
     const [phase, setPhase] = useState('work')
-    const alarm = new Audio(alarmSound)
-    const percentage = ((phase === 'work' ? 1500 : 300) - time) / (phase === 'work' ? 1500 : 300) * 100;
 
+    const alarm = new Audio(alarmSound)
+
+    const phaseDuration = phase === 'work' ? work : phase === 'break' ? breakTime : longBreak;
+    const percentage = ((phaseDuration - time) / phaseDuration) * 100;
+    
+
+    const formatTime = (time) => {
+        const minutes = Math.floor(time / 60)
+        const seconds = time % 60
+        return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+    }
+
+
+    // const [formatedTime, setFormatedTime] = useState(formatTime(time))
+    
+    // useEffect(() => {
+    //   setFormatedTime(formatTime(time))
+    // }, [time])
+    
+   
     useEffect(() => {
         if (isRunning) {
         const timer = setInterval(() => {
@@ -27,10 +46,10 @@ function Home() {
         alarm.play().catch((err) => console.log("Error playing audio:", err));
 
         if (phase === 'work') {
-            setTime(300);
+            setTime(breakTime);
             setPhase('break');
         } else {
-            setTime(1500);
+            setTime(work);
             setPhase('work');
         }
 
@@ -48,25 +67,53 @@ function Home() {
         if (isRunning) {
             document.title = `${formatTime(time)} - Pomodoro Timer`
         } else {
-            document.title = phase === 'break'
-                    ? 'Time to take a break! - Pomodoro Timer'
-                    : 'Time to Get Focus! - Pomodoro Timer';
+            document.title = phase === 'work'
+                    ? 'Time to Get Focus! - Pomodoro Timer'
+                    : 'Time to take a break! - Pomodoro Timer';
         }
         return () => document.title = 'Pomodoro Timer - Get Focused!'
     }, [time, isRunning])
+
 
     const toggleTimer = () => {
         setIsRunning(!isRunning)
     }
 
-    const formatTime = (time) => {
-        const minutes = Math.floor(time / 60)
-        const seconds = time % 60
-        return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
+ 
+    const resetTimer = () => {
+        switch (phase) {
+            case 'work':
+                setTime(work)
+                break;
+            case 'break':
+                setTime(breakTime)
+                break;
+            case 'longBreak':
+                setTime(longBreak)
+                break;
+            default:
+                break;
+        }
+        setIsRunning(false)
     }
 
-    const resetTimer = () => {
-        setTime(1500)
+    const handleWork = (pomodoroPhase) => {
+        switch (pomodoroPhase) {
+            case 'work':
+                setTime(work)
+                setPhase('work')
+                break;
+            case 'breakTime':
+                setTime(breakTime)
+                setPhase('break')
+                break;
+            case 'longBreak':
+                setTime(longBreak)
+                setPhase('longBreak')
+                break;
+            default:
+                break;
+        }
         setIsRunning(false)
     }
 
@@ -76,9 +123,9 @@ function Home() {
             <div className='timer'>
                 <h3 className='outfit-light'>{phase === 'work' ? "Time to work!" : "Let's take a break!"}</h3>
                 <div className='timer__btn-controllers'>
-                    <Button text="Work" className="btn btn-controllers"/>
-                    <Button text="Break" className="btn btn-controllers"/>
-                    <Button text="Long Break" className="btn btn-controllers"/>
+                    <Button text="Work" className="btn btn-controllers" onClick={()=>{handleWork('work')}}/>
+                    <Button text="Break" className="btn btn-controllers" onClick={()=>{handleWork('breakTime')}}/>
+                    <Button text="Long Break" className="btn btn-controllers" onClick={()=>{handleWork('longBreak')}}/>
                 </div>
                 <CircularProgressbar value={percentage} text={formatTime(time)} strokeWidth="1" styles={{
                     text: {
