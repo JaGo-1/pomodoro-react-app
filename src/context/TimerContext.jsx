@@ -7,6 +7,8 @@ export const TimerContextProvider = ({ children }) => {
     const [breakTime, setBreakTime] = useState(300)
     const [longBreak, setLongBreak] = useState(900)
     const [time, setTime] = useState(1500)
+    const [phase, setPhase] = useState('work')
+
 
     const value = {
         work,
@@ -16,7 +18,9 @@ export const TimerContextProvider = ({ children }) => {
         longBreak,
         setLongBreak,
         time,
-        setTime
+        setTime,
+        phase,
+        setPhase,
     }
 
     return (

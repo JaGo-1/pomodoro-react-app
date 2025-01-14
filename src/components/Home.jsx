@@ -1,4 +1,4 @@
-import {useEffect, useState, useContext} from 'react'
+import {useEffect, useState, useContext, useMemo} from 'react'
 import '../styles/styles.css'
 import Button from './Button'
 import { IoPlay, IoPauseSharp, IoReload  } from "react-icons/io5";
@@ -8,16 +8,15 @@ import 'react-circular-progressbar/dist/styles.css';
 import { TimerContext } from '../context/TimerContext'
 
 function Home() {
-    const { work, breakTime, longBreak, time, setTime } = useContext(TimerContext)
+    const { work, breakTime, longBreak, time, setTime, phase, setPhase } = useContext(TimerContext)
     const [isRunning, setIsRunning] = useState(false)
-    // const [time, setTime] = useState(1500)
-    const [phase, setPhase] = useState('work')
+    // const [phase, setPhase] = useState('work')
 
     const alarm = new Audio(alarmSound)
 
     const phaseDuration = phase === 'work' ? work : phase === 'break' ? breakTime : longBreak;
     const percentage = ((phaseDuration - time) / phaseDuration) * 100;
-    
+
 
     const formatTime = (time) => {
         const minutes = Math.floor(time / 60)
@@ -25,14 +24,6 @@ function Home() {
         return `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`
     }
 
-
-    // const [formatedTime, setFormatedTime] = useState(formatTime(time))
-    
-    // useEffect(() => {
-    //   setFormatedTime(formatTime(time))
-    // }, [time])
-    
-   
     useEffect(() => {
         if (isRunning) {
         const timer = setInterval(() => {
@@ -79,7 +70,7 @@ function Home() {
         setIsRunning(!isRunning)
     }
 
- 
+
     const resetTimer = () => {
         switch (phase) {
             case 'work':
